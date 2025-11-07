@@ -427,7 +427,7 @@ app.use((_req, res) => {
   res.status(404).json({ error: 'Not found' });
 });
 
-const port = Number(SERVER_PORT);
+const port = Number(process.env.PORT ?? SERVER_PORT ?? 8080);
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });

@@ -2,7 +2,6 @@
   "name": "thanglish-pro-v3-for-adding-2srt-feature",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm:server:dev\" \"npm:vite:dev\"",
     "vite:dev": "vite",
