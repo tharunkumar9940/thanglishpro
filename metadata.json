@@ -1,0 +1,5 @@
+{
+  "name": "Thanglish Pro V3 for adding 2srt feature",
+  "description": "An AI-powered application to generate subtitles from Tamil audio files. Users can upload an audio file and get an SRT file in either Thanglish (Tamil in English script) or English, with customizable formatting options.\n\n\nthis v3 mainly focus on srt spilt v2 is accurate single word subtitle ",
+  "requestFramePermissions": []
+}

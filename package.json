@@ -1,0 +1,40 @@
+{
+  "name": "thanglish-pro-v3-for-adding-2srt-feature",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm:server:dev\" \"npm:vite:dev\"",
+    "vite:dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server:dev": "tsx watch server/index.ts",
+    "server:start": "node dist/server/index.js",
+    "server:build": "tsc -p tsconfig.server.json"
+  },
+  "dependencies": {
+    "@google/genai": "^1.28.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.0.1",
+    "express-session": "^1.18.1",
+    "google-auth-library": "^9.14.2",
+    "razorpay": "^2.9.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.0",
+    "@types/express-session": "^1.17.8",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.2",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

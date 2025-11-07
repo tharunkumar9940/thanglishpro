@@ -1,0 +1,11 @@
+{
+  "dev-tester": {
+    "userId": "dev-tester",
+    "walletBalancePaise": 0,
+    "paymentHistory": [],
+    "createdAt": 1762485389327,
+    "updatedAt": 1762487102347,
+    "name": "Dev",
+    "email": "devtester@example.com"
+  }
+}
