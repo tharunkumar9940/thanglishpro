@@ -22,4 +22,4 @@ COPY --from=build /app/tsconfig.server.json ./tsconfig.server.json
 COPY --from=build /app/package*.json ./
 
 EXPOSE 8080
-CMD ["node", "dist/server/server/index.js"]
+CMD ["node", "dist/server/index.js"]
