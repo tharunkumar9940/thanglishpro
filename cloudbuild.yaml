@@ -1,0 +1,13 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - ${_IMAGE_URI}
+      - .
+
+images:
+  - ${_IMAGE_URI}
+
+substitutions:
+  _IMAGE_URI: gcr.io/${PROJECT_ID}/sentient-biotech-website
