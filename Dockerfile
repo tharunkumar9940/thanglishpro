@@ -1,24 +1,25 @@
-FROM node:20-alpine AS deps
+FROM node:20-slim AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
-
-FROM node:20-alpine AS build
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+RUN npm run build && npm run server:build
 
-FROM node:20-alpine AS runner
+FROM node:20-slim
 WORKDIR /app
 ENV NODE_ENV=production \
-    PORT=3000
+    PORT=8080 \
+    SERVER_PORT=8080 \
+    STATIC_DIST=./dist \
+    CLIENT_ORIGIN=https://your-run-domain \
+    VITE_SERVER_URL=/api
 
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=build /app/.next ./.next
-COPY --from=build /app/public ./public
-COPY package*.json ./
-RUN npm prune --omit=dev
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/server ./server
+COPY --from=build /app/shared ./shared
+COPY --from=build /app/tsconfig.server.json ./tsconfig.server.json
+COPY --from=build /app/package*.json ./
 
-EXPOSE 3000
-CMD ["npm", "run", "start"]
+EXPOSE 8080
+CMD ["node", "dist/server/server/index.js"]
